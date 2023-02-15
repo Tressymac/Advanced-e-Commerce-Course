@@ -9,7 +9,7 @@ function Header( {logo} ){
                 <Header>
                     <h1>Donation Pal</h1>
                 </Header>
-                <RouterLink to='/' className='App-link'>Home</RouterLink>
+                <RouterLink to='/' className='App-link'>Home</RouterLink>3
                 <div>
                 <RouterLink to='/Campaigns' className='Header-link'>Campaigns</RouterLink>
                 <RouterLink to='/Contributors' className='Header-link'>Contributors</RouterLink>

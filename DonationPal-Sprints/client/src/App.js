@@ -31,10 +31,6 @@ function App() {
       <div className="App">
         <BrowserRouter>
           <Header buddingPopWine={logo} />
-          {/* <Routes>
-            <Route path="/" element={<Board apiURL={apiURL} />}/>
-            <Route path="/AllTasks" element={<AllTasks apiURL={apiURL} />}/>
-          </Routes> */}
         </BrowserRouter>
       </div>
     </div>
