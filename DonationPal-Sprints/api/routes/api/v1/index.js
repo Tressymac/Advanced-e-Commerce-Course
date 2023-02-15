@@ -4,11 +4,11 @@ var router = express.Router();
 
 const mongoose = require('mongoose');
 require('models/Campaigns');
-// require('models/Donations');
+require('models/Donations');
 require('models/Users');
 
 const Campaigns = mongoose.model('campaign');
-// const Donations = mongoose.model('donation');
+const Donations = mongoose.model('donation');
 const Users = mongoose.model('user');
 
 // Root route
@@ -36,14 +36,39 @@ router.get('/user', async (req, res) => {
   }, 3000);
 });
 
-// Getting all users in database
+// Getting campaign by id in database
 router.get('/campaign/:_id', async function (req, res, next) {
-  const regexExpression = req.params._id;
-  // const regexFilter = {"_id": {$regex : regexExpression}};
-  // const foundCampaign = await Campaigns.find(regexFilter);
-  const requestedCampaign = await Campaigns.findById(regexExpression);
-  // res.json(foundCampaign);
-  console.log(regexExpression);
+  const paramInputID = req.params._id;
+  const requestedCampaign = await Campaigns.findById(paramInputID);
+  console.log(paramInputID);
+  console.log(requestedCampaign);
+  res.json(requestedCampaign);
+});
+
+// Getting users by id in database
+router.get('/user/:_id', async function (req, res, next) {
+  const paramInputID = req.params._id;
+  const requestedCampaign = await Users.findById(paramInputID);
+  console.log(paramInputID);
+  console.log(requestedCampaign);
+  res.json(requestedCampaign);
+});
+
+// Getting all donations in database
+router.get('/donation', async (req, res) => {
+  setTimeout(async function() {
+      const filter = {};
+      const donation = await Donations.find(filter);
+      console.log(donation);
+      res.json(donation);
+  }, 3000);
+});
+
+// Getting donations by id in database
+router.get('/donation/:_id', async function (req, res, next) {
+  const paramInputID = req.params._id;
+  const requestedCampaign = await Donations.findById(paramInputID);
+  console.log(paramInputID);
   console.log(requestedCampaign);
   res.json(requestedCampaign);
 });
