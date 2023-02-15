@@ -5,11 +5,8 @@ import logo from './assets/images/1.png';
 import './assets/styles/style.css'
 
 import './App.css';
-// import Task from './pages/Board/Board';
-import Header from './components/header/header';
+import Header from './components/header/header.js';
 
-// import Board from './pages/Board/Board';
-// import AllTasks from './pages/AllTasks/AllTasks';
 
 function App() {
 
@@ -30,7 +27,7 @@ function App() {
     <div className='container'>
       <div className="App">
         <BrowserRouter>
-          <Header buddingPopWine={logo} />
+          <Header logo={Logo} />
         </BrowserRouter>
       </div>
     </div>

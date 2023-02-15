@@ -1,10 +1,10 @@
 import { Link as RouterLink } from 'react-router-dom'
 import '../header/header.css'
 
-function Header( {logo} ){
+function Header( {Logo} ){
     return(
         <header className='App-header'>
-            <img src={logo} className="App-logo" alt='Donation Pal logo' />
+            <img src={Logo} className="App-logo" alt='Donation Pal logo' />
             <nav>
                 <Header>
                     <h1>Donation Pal</h1>
