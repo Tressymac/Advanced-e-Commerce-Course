@@ -38,10 +38,7 @@ return  (
         <div >
             {isLoading ? <span>Loading...</span> : (
                 <div>
-                    {/* <CampaignList allCampaigns={dataCampaigns} /> */}
-                    {dataCampaigns.map(function(user) {
-                        <div key={user._id}>{user._id}</div>;
-                    })}
+                    <CampaignList allCampaigns={dataCampaigns} />
                 </div>
             )}
         </div>

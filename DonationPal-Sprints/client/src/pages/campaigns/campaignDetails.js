@@ -5,60 +5,43 @@ import { useLocation, useParams } from "react-router-dom";
 // import useTaskFetcher from '../../hook/useTaskFetcher.js'; this is the hook
 import axios from 'axios';
 
+import useCampDetailsFetcher from '../../hooks/campaign/detailsHook'
+
 // import Lane from '../../components/Lane/Lane.js'; this is the component
 import '../campaigns/campaigns.css';
-import CampaignList from '../../components/campaigns/campaignsList';
-import Campaign from '../../components/campaigns/campaigns';
-import Details from '../../components/campaigns/details'
-import DetailsList from '../../components/campaigns/detailsList';
+// import CampaignList from '../../components/campaigns/campaignsList';
+// import Campaign from '../../components/campaigns/campaigns';
+// import Details from '../../components/campaigns/details'
+// import DetailsList from '../../components/campaigns/detailsList';
 
-function Campaigns( {apiURL} ) {
+// function Campaigns( {apiURL} ) {
     
-const [isLoading, setIsLoading] = useState(false);
-const [dataCampaigns, setCampaigns] = useState([]);
+// const [isLoading, setIsLoading] = useState(false);
+// const [dataCampaigns, setCampaigns] = useState([]);
 
-const { _id } = useParams();
+// const apiResponse = await axios.get(apiURL + '/campaign/' + _id)
 
 
+function AllTasks( {apiURL} ){
+    const { _id } = useParams();
 
-useEffect( () => {
-    
-    const loadCampaigns = async () => {
-        try {
-            const apiResponse = await axios.get(apiURL + '/campaign/' + _id)
-            setCampaigns((dataCampaigns) => [...apiResponse.data]);
-            // await console.log(apiResponse.data.name)
-        }
-        catch (error) {
-            console.log("Error :(");
-        }
-        finally {
-            setIsLoading(false);
-        }
-    };
-
-    // set isload to true
-    setIsLoading(true);
-    loadCampaigns();
-}, []);
-
-return  (
-    <div>
-        <div >
-            {isLoading ? <span>Loading...</span> : (
-                // <div>
-                //     <Details name={dataCampaigns.name} description={dataCampaigns.description}/>
-                // </div>
-                <ul>
-                {
-                    dataCampaigns.map( (task) => <li> {task.name} </li>)
-                }
-            </ul>
-            )}
+    const [isLoading, error, campdata] = useCampDetailsFetcher(apiURL + '/campaign/' + _id);
+    return(
+        <div className="Tasks-wrapper">
+            { isLoading ?  
+                (<span>Loading...</span>)
+            : 
+                (
+                    <ul>
+                        {campdata.map( (campdata) => <li> {campdata.name} </li>)}
+                        {/* <li>{campdata.name}</li> */}
+                    </ul>
+                )
+            }
         </div>
-    </div>
-)
+    )
+};
 
-}
+export default AllTasks; 
 
-export default Campaigns;
+
