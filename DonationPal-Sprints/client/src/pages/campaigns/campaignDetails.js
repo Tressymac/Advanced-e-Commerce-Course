@@ -7,19 +7,9 @@ import axios from 'axios';
 
 import useCampDetailsFetcher from '../../hooks/campaign/detailsHook'
 
-// import Lane from '../../components/Lane/Lane.js'; this is the component
 import '../campaigns/campaigns.css';
-// import CampaignList from '../../components/campaigns/campaignsList';
-// import Campaign from '../../components/campaigns/campaigns';
-// import Details from '../../components/campaigns/details'
+import Details from '../../components/campaigns/details'
 // import DetailsList from '../../components/campaigns/detailsList';
-
-// function Campaigns( {apiURL} ) {
-    
-// const [isLoading, setIsLoading] = useState(false);
-// const [dataCampaigns, setCampaigns] = useState([]);
-
-// const apiResponse = await axios.get(apiURL + '/campaign/' + _id)
 
 
 function AllTasks( {apiURL} ){
@@ -32,10 +22,10 @@ function AllTasks( {apiURL} ){
                 (<span>Loading...</span>)
             : 
                 (
-                    <ul>
-                        {campdata.map( (campdata) => <li> {campdata.name} </li>)}
-                        {/* <li>{campdata.name}</li> */}
-                    </ul>
+                    <div>
+
+                        {campdata.map( (campdata) => <Details name={campdata.name} description={campdata.description} />)}
+                    </div>
                 )
             }
         </div>

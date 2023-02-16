@@ -13,7 +13,7 @@ function useCampDetailsFetcher(dataSource){
             try {
                 const apiResponse = await axios.get(dataSource);
                 console.log(apiResponse.data);
-                setCampaigns((dataCampaigns) => [...apiResponse.data]);
+                setCampaigns((dataCampaigns) => [apiResponse.data]);
                 // await console.log(apiResponse.data.name)
             }
             catch (error) {
