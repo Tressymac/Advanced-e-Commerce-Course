@@ -53,3 +53,7 @@
     background-color: rgba(179, 177, 177, 0.253);
     border: 3px solid rgba(0, 0, 0, 0.5);
 }
+
+.detailsCard{
+    display: flex;
+}

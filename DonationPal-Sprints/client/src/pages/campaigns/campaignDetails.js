@@ -22,9 +22,13 @@ function AllTasks( {apiURL} ){
                 (<span>Loading...</span>)
             : 
                 (
-                    <div>
-
-                        {campdata.map( (campdata) => <Details name={campdata.name} description={campdata.description} />)}
+                    <div className='DetailsListCard'>
+                        {campdata.map( (campdata) => <Details 
+                        name={campdata.name} 
+                        description={campdata.description} 
+                        goal={campdata.goal}
+                        start_date={campdata.start_date}
+                        end_date={campdata.end_date}/>)}
                     </div>
                 )
             }
