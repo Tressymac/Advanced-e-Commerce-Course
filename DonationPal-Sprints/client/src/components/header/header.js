@@ -6,11 +6,9 @@ function Header( {Logo} ){
         <header className='App-header'>
             <img src={Logo} className="App-logo" alt='Donation Pal logo' />
             <nav>
-                <Header>
-                    <h1>Donation Pal</h1>
-                </Header>
-                <RouterLink to='/' className='App-link'>Home</RouterLink>3
+                <h1>Donation Pal</h1>
                 <div>
+                <RouterLink to='/' className='App-link Header-link'>Home</RouterLink>
                 <RouterLink to='/Campaigns' className='Header-link'>Campaigns</RouterLink>
                 <RouterLink to='/Contributors' className='Header-link'>Contributors</RouterLink>
                 </div>
