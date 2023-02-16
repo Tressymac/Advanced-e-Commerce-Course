@@ -14,11 +14,7 @@ function Campaigns( {apiURL} ) {
     
 const [isLoading, setIsLoading] = useState(false);
 const [secondDataCamp, secondSetCamp] = useState([]);
-// const { id } = useParams();
-// const Idee = this.props.match.params.id;
 
-const search = useLocation().search;
-// new URLSearchParams(search).get("_id");
 const { _id } = useParams();
 
 
