@@ -9,6 +9,8 @@ import './App.css';
 import Header from './components/header/header.js';
 import Homepage from './components/home/home';
 
+import Campaigns from './pages/campaigns/campaigns';
+
 
 function App() {
 
@@ -28,6 +30,9 @@ function App() {
         <BrowserRouter>
           <Header Logo={logoImage} />
           <Homepage image={homeImage} />
+          <Routes>
+            <Route path="/Campaigns" element={<Campaigns apiURL={apiURL} />}/>
+          </Routes>
         </BrowserRouter>
       </div>
     </div>

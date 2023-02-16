@@ -4,3 +4,44 @@ import axios from 'axios';
 
 // import Lane from '../../components/Lane/Lane.js'; this is the component
 import '../campaigns/campaigns.css';
+
+function Campaigns( {apiURL} ) {
+    
+const [isLoading, setIsLoading] = useState(false);
+const [dataCampaigns, setCampaigns] = useState([]);
+
+useEffect( () => {
+    const loadCampaigns = async () => {
+        try {
+            const apiResponse = await axios.get(apiURL + '/campaign/')
+            await console.log(apiResponse.data);            
+            setCampaigns((dataCampaigns) => [...apiResponse.data]);
+        }
+        catch (error) {
+            console.log("Error :(");
+        }
+        finally {
+            setIsLoading(false);
+        }
+    };
+
+    // set isload to true
+    setIsLoading(true);
+    loadCampaigns();
+}, []);
+
+return  (
+    <div>
+        <div style={{marginLeft: 10 + "%"}}>
+            {isLoading ? <span>Loading...</span> : (
+                <div>
+                    {/* <RecipeList Alldrinks={drinks} /> */}
+                </div>
+            )}
+        </div>
+    </div>
+)
+
+}
+
+export default Campaigns;

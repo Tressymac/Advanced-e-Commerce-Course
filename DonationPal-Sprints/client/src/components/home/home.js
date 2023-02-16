@@ -25,19 +25,19 @@ function Homepage ({image}){
                 </div>
 
                 <footer>
-                    <div class="social-links">
-                        <div class="row">
-                            <div class="small-6 medium-3 columns text-center mobile-stack">
-                            <a href="https://www.facebook.com/"><i class="fa fa-facebook" aria-hidden="true"></i>Facebook</a>
+                    <div className="social-links">
+                        <div className="row">
+                            <div className="small-6 medium-3 columns text-center mobile-stack">
+                            <a href="https://www.facebook.com/"><i className="fa fa-facebook" aria-hidden="true"></i>Facebook</a>
                             </div>
-                            <div class="small-6 medium-3 columns text-center mobile-stack">
-                            <a href="https://www.instagram.com/?hl=en"><i class="fa fa-instagram" aria-hidden="true"></i>Instagram</a>
+                            <div className="small-6 medium-3 columns text-center mobile-stack">
+                            <a href="https://www.instagram.com/?hl=en"><i className="fa fa-instagram" aria-hidden="true"></i>Instagram</a>
                             </div>
-                            <div class="small-6 medium-3 columns text-center mobile-stack">
-                            <a href="https://www.pinterest.com/"><i class="fa fa-pinterest-p" aria-hidden="true"></i>Pinterest</a>
+                            <div className="small-6 medium-3 columns text-center mobile-stack">
+                            <a href="https://www.pinterest.com/"><i className="fa fa-pinterest-p" aria-hidden="true"></i>Pinterest</a>
                             </div>
-                            <div class="small-6 medium-3 columns text-center mobile-stack">
-                            <a href="https://twitter.com/?lang=en"><i class="fa fa-twitter" aria-hidden="true"></i>Twitter</a>
+                            <div className="small-6 medium-3 columns text-center mobile-stack">
+                            <a href="https://twitter.com/?lang=en"><i className="fa fa-twitter" aria-hidden="true"></i>Twitter</a>
                             </div>
                         </div>
                     </div>

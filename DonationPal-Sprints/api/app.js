@@ -30,4 +30,6 @@ app.use(cors());
 
 app.use('/api/v1', apiRouter);
 
+console.log(process.env.NODE_ENV)
+
 module.exports = app;
