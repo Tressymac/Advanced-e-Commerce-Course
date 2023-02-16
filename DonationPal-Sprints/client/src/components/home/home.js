@@ -17,7 +17,7 @@ function Homepage ({image}){
                             sunt in culpa qui officia deserunt mollit anim id est laborum.
                         </p>
                         <div>
-                            <button>
+                            <button className='Button'>
                                 Donate
                             </button>
                         </div>

@@ -10,6 +10,7 @@ import Header from './components/header/header.js';
 import Homepage from './components/home/home';
 
 import Campaigns from './pages/campaigns/campaigns';
+import CampaignDetails from './pages/campaigns/campaignDetails';
 
 
 function App() {
@@ -29,11 +30,11 @@ function App() {
       <div className="App">
         <BrowserRouter>
           <Header Logo={logoImage} />
-          {/* <Homepage image={homeImage} /> */}
           <Routes>
             {/* Whoops the homepage is in the component */}
-            <Route path="/" element={<Homepage image={homeImage}/>}/>
-            <Route path="/Campaigns" element={<Campaigns apiURL={apiURL} />}/>
+            <Route path="/" element={<Homepage image={homeImage}/>}/>;
+            <Route path="/Campaigns" element={<Campaigns apiURL={apiURL} />}/>;
+            <Route path="/Campaigns/:_id" element={<CampaignDetails apiURL={apiURL} />}/>;
           </Routes>
         </BrowserRouter>
       </div>

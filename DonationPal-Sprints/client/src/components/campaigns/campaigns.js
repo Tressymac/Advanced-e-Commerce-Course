@@ -1,6 +1,7 @@
-import '../campaigns/campaigns.css'
+import '../campaigns/campaigns.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-function Campaigns ({name, description, goal, start_date, end_date}){
+function Campaigns ({name, description, goal, start_date, end_date, _id}){
     return(
             <div className="card">
                 <div className="card-body">
@@ -8,8 +9,8 @@ function Campaigns ({name, description, goal, start_date, end_date}){
                     <hr></hr>
                     <h3 className="card-subtitle mb-2 text-muted">Goal: {goal}</h3>
                     <p className="card-text">{description}</p>
-                    <a href="#" className="btn btn-primary">
-                        <button>Learn More</button>
+                    <a href={`/Campaigns/${_id}`} className="btn btn-primary">
+                        <button className='campButton'> Learn More</button>
                     </a>          
                 </div>
             </div>

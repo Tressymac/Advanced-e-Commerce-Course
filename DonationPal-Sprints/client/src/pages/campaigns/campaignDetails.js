@@ -9,15 +9,31 @@ import CampaignList from '../../components/campaigns/campaignsList';
 function Campaigns( {apiURL} ) {
     
 const [isLoading, setIsLoading] = useState(false);
-const [dataCampaigns, setCampaigns] = useState([]);
+const [secondDataCamp, secondSetCamp] = useState([]);
+// const { id } = useParams();
+// const Idee = this.props.match.params.id;
 
 useEffect( () => {
     const loadCampaigns = async () => {
         try {
-            const apiResponse = await axios.get(apiURL + '/campaign/')
+            // const apiResponse = await axios.get(apiURL + '/campaign/')
             // await console.log(apiResponse.data);
-            await console.log(apiResponse.data);                        
-            setCampaigns((dataCampaigns) => [...apiResponse.data]);
+            // await console.log(apiResponse.data);                        
+            // setCampaigns((dataCampaigns) => [...apiResponse.data]);
+            
+
+
+            const search = window.location.search;
+            const params = new URLSearchParams(search);
+
+            const foo = params.get('_id');
+            await console.log(foo)
+
+
+            // const apiResponseByID = await axios.get(apiURL + '/campaign/' + Idee)
+            // await console.log(apiResponseByID.data);                        
+            // secondSetCamp((secondDataCamp) => [...apiResponseByID.data]);
+            
 
         }
         catch (error) {
@@ -38,7 +54,8 @@ return  (
         <div >
             {isLoading ? <span>Loading...</span> : (
                 <div>
-                    <CampaignList allCampaigns={dataCampaigns} />
+                    testing
+                    {/* <CampaignList allCampaigns={dataCampaigns} /> */}
                 </div>
             )}
         </div>
