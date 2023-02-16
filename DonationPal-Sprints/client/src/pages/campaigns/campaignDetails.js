@@ -8,12 +8,14 @@ import axios from 'axios';
 // import Lane from '../../components/Lane/Lane.js'; this is the component
 import '../campaigns/campaigns.css';
 import CampaignList from '../../components/campaigns/campaignsList';
-import campaigns from '../../components/campaigns/campaigns';
+import Campaign from '../../components/campaigns/campaigns';
+import Details from '../../components/campaigns/details'
+import DetailsList from '../../components/campaigns/detailsList';
 
 function Campaigns( {apiURL} ) {
     
 const [isLoading, setIsLoading] = useState(false);
-const [secondDataCamp, secondSetCamp] = useState([]);
+const [dataCampaigns, setCampaigns] = useState([]);
 
 const { _id } = useParams();
 
@@ -23,11 +25,9 @@ useEffect( () => {
     
     const loadCampaigns = async () => {
         try {
-
-            const apiResponseByID = await axios.get(apiURL + '/campaign/' + _id)
-            await console.log(apiResponseByID.data);     
-            secondSetCamp((secondDataCamp) => [...apiResponseByID.data]);
-            
+            const apiResponse = await axios.get(apiURL + '/campaign/' + _id)
+            setCampaigns((dataCampaigns) => [...apiResponse.data]);
+            // await console.log(apiResponse.data.name)
         }
         catch (error) {
             console.log("Error :(");
@@ -46,10 +46,14 @@ return  (
     <div>
         <div >
             {isLoading ? <span>Loading...</span> : (
-                <div>
-                    testing
-                    {/* <CampaignList allCampaigns={secondDataCamp} /> */}
-                </div>
+                // <div>
+                //     <Details name={dataCampaigns.name} description={dataCampaigns.description}/>
+                // </div>
+                <ul>
+                {
+                    dataCampaigns.map( (task) => <li> {task.name} </li>)
+                }
+            </ul>
             )}
         </div>
     </div>

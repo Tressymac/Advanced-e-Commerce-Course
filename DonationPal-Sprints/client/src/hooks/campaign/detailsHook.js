@@ -1,0 +1,33 @@
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+
+function useTaskFetcher(dataSource){
+    // Set up initial state of state variables
+    const [isLoading, setIsLoading] = useState(false);
+    const [dataCampaigns, setCampaigns] = useState([]);
+    const [error, setError] = useState('');
+
+    useEffect(() => {
+        // Define a function that loads tasks from the API
+        const loadTasks = async () => {
+            try {
+                const response = await axios.get(dataSource);
+                console.log(response.data);
+                setTasks( (tasks) => [...response.data]);
+                setLoading(false);
+            } catch (err) {
+                setLoading(false);
+                setError(err.message);
+                console.error(err);
+            }
+        };
+
+        // Call the function we defined
+        setLoading(true);
+        loadTasks();
+    }, []);
+
+    return [loading, error, tasks];
+}
+
+export default useTaskFetcher;
