@@ -4,9 +4,11 @@ import '../header/header.css'
 function Header( {Logo} ){
     return(
         <header className='App-header'>
-            <img src={Logo} className="App-logo" alt='Donation Pal logo' />
             <nav>
-                <h1>Donation Pal</h1>
+                <div className='Introduction'>
+                    <img src={Logo} className="App-logo" alt='Donation Pal logo' />
+                    <h1>Donation Pal</h1>
+                </div>
                 <div>
                 <RouterLink to='/' className='App-link Header-link'>Home</RouterLink>
                 <RouterLink to='/Campaigns' className='Header-link'>Campaigns</RouterLink>

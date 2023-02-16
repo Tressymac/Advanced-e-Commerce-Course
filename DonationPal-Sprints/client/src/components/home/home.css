@@ -1,0 +1,90 @@
+.container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.IntroductionHome{
+    display: flex;
+    /* justify-content: center; */
+    flex-direction: row;
+    /* margin-top: 3%; */
+    /* margin-left: 2%; */
+    align-items: center;
+    text-align: center;
+    background-color: rgb(10, 10, 10);
+}
+
+.App-image1{
+    width: 50%;
+}
+
+p{
+    color: white;
+    width: 70%;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: large;
+}
+
+.secondContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+h1{
+    text-transform: uppercase;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    letter-spacing: 4px;
+    color: white;
+    margin-left: 5%;
+}
+
+button{
+    width: 200px;
+    height: 50px;
+    background-color: rgba(255, 255, 255, 0.479);
+    margin-top: 5%;
+    border-radius: 100px;
+    border: 3px solid white;
+    font-size: large;
+}
+
+button:hover{
+    background-color: rgba(179, 177, 177, 0.253);
+    border: 3px solid rgba(0, 0, 0, 0.5);
+}
+
+.social-links {
+    background: rgb(10, 10, 10);
+    padding: 2rem 0 1rem;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.row{
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: center;
+}
+  
+.social-links a {
+    color: white;
+    font-size: 1.2rem;
+    text-decoration: none;
+}
+  
+.small-6{
+    margin-left: 10%;
+}
+
+.social-links i.fa {
+    font-size: 1.4rem;
+    padding-right: 0.8rem;
+    padding-bottom: 1rem;
+}
+
+  

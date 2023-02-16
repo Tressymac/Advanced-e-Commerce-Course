@@ -2,10 +2,12 @@
     height: 60px;
     pointer-events: none;
     margin-top: 20px;
+    position: absolute;
+    left: 95%;
   }
 
   body{
-    background-color: #141619;
+    background-color: rgb(10, 10, 10);
   }
   
   /* @media (prefers-reduced-motion: no-preference) {
@@ -15,8 +17,8 @@
   }
    */
   .App-header {
-    background-color: #595959;
-    outline: 3px solid salmon;
+    background-color: #3d3c3c;
+    outline: 3px solid rgb(255, 255, 255);
     /* width: 100%; */
     min-height: 100%;
     display: flex;
@@ -35,16 +37,27 @@
       transform: rotate(360deg);
     }
   } */
+
+  .Introduction{
+    display: flex;
+    justify-content: center;
+  }
+
+  h1{
+    text-transform: uppercase;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    letter-spacing: 4px;
+  }
   
 
   .App-header > nav {
     margin-bottom: 10px;
-    margin-top: 30px;
+    margin-top: 10px;
   }
 
   .App-header > nav > .App-link {
     margin-right: 30px;
-    color: #141619;
+    color: #ffffff;
     text-decoration: none;
     text-transform: uppercase;
     font-family: "Roboto", sans-serif;
@@ -55,7 +68,7 @@
 
   .App-header > nav > div > .Header-link {
     margin-right: 30px;
-    color: #141619;
+    color: #f7f7f7;
     text-decoration: none;
     text-transform: uppercase;
     font-family: "Roboto", sans-serif;
@@ -66,7 +79,7 @@
     content: "";
     width: 0;
     height: 8px;
-    background: #f94144;
+    background: #000000;
     position: absolute;
     bottom: -8px;
     left: 0;

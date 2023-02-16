@@ -1,11 +1,13 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import logo from './assets/images/1.png';
+import logoImage from './assets/images/1.png';
+import homeImage from './assets/images/handHeart.jpeg';
 import './assets/styles/style.css'
 
 import './App.css';
 import Header from './components/header/header.js';
+import Homepage from './components/home/home';
 
 
 function App() {
@@ -24,7 +26,8 @@ function App() {
     <div className='container'>
       <div className="App">
         <BrowserRouter>
-          <Header Logo={logo} />
+          <Header Logo={logoImage} />
+          <Homepage image={homeImage} />
         </BrowserRouter>
       </div>
     </div>
