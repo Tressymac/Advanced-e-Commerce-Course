@@ -3,14 +3,14 @@ import '../home/home.css'
 
 function Homepage ({image}){
     return(
-        <div className='container'>
+        <div className='Container'>
                 <div className='IntroductionHome'>
                     <img src={image} className="App-image1" alt='Homepage Image' />
                 {/* </div>
                 <div className='introductionPara'> */}
                     <div className='secondContainer'>
-                        <h1>Who are we</h1>
-                        <p>
+                        <h1 className='h1Text'>Who are we</h1>
+                        <p className='paragraph'>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
                             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor 
                             in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
@@ -26,7 +26,7 @@ function Homepage ({image}){
 
                 <footer>
                     <div className="social-links">
-                        <div className="row">
+                        <div className="row1">
                             <div className="small-6 medium-3 columns text-center mobile-stack">
                             <a href="https://www.facebook.com/"><i className="fa fa-facebook" aria-hidden="true"></i>Facebook</a>
                             </div>

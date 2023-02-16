@@ -1,0 +1,39 @@
+.campListH1{
+    margin-top: 5%;
+    margin-bottom: 5%;
+    color: white;
+}
+
+.Container{
+    margin-bottom: 3%;
+}
+
+.card{
+    display: flex;
+    background-color: white;
+    margin-bottom: 3%;
+    width: 400px;
+    border-radius: 20px;
+}
+
+.row{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-body{
+    /* background-color: white;
+    width: 400px;
+    border-radius: 20px; */
+}
+
+.title{
+    margin-top: 10%;
+}
+
+.card-text{
+    color: black;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}

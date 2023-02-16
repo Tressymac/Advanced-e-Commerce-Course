@@ -29,8 +29,10 @@ function App() {
       <div className="App">
         <BrowserRouter>
           <Header Logo={logoImage} />
-          <Homepage image={homeImage} />
+          {/* <Homepage image={homeImage} /> */}
           <Routes>
+            {/* Whoops the homepage is in the component */}
+            <Route path="/" element={<Homepage image={homeImage}/>}/>
             <Route path="/Campaigns" element={<Campaigns apiURL={apiURL} />}/>
           </Routes>
         </BrowserRouter>

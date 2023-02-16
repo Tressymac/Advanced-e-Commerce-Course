@@ -4,6 +4,7 @@ import axios from 'axios';
 
 // import Lane from '../../components/Lane/Lane.js'; this is the component
 import '../campaigns/campaigns.css';
+import CampaignList from '../../components/campaigns/campaignsList';
 
 function Campaigns( {apiURL} ) {
     
@@ -32,10 +33,10 @@ useEffect( () => {
 
 return  (
     <div>
-        <div style={{marginLeft: 10 + "%"}}>
+        <div >
             {isLoading ? <span>Loading...</span> : (
                 <div>
-                    {/* <RecipeList Alldrinks={drinks} /> */}
+                    <CampaignList allCampaigns={dataCampaigns} />
                 </div>
             )}
         </div>
