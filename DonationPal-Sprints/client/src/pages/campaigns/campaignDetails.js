@@ -1,8 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useLocation, useParams } from "react-router-dom";
-// import { useParams } from "react-router";
 
-// import useTaskFetcher from '../../hook/useTaskFetcher.js'; this is the hook
 import axios from 'axios';
 
 import useCampDetailsFetcher from '../../hooks/campaign/detailsHook';
@@ -11,7 +9,6 @@ import useDonationDetailsFetcher from '../../hooks/donation/specificDonation';
 import '../campaigns/campaigns.css';
 import Details from '../../components/campaigns/details';
 import Donation from '../../components/donations/donations';
-// import DetailsList from '../../components/campaigns/detailsList';
 
 
 function AllTasks( {apiURL} ){
