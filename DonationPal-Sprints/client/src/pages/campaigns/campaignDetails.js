@@ -23,7 +23,7 @@ function AllTasks( {apiURL} ){
     return(
         <div className="Tasks-wrapper">
             { isLoading ?  
-                (<span>Loading...</span>)
+                (<span className='loading'><div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></span>)
             : 
                 (
                     <div className='DetailsListCard'>

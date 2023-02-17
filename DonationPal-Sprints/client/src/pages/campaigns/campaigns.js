@@ -36,7 +36,9 @@ useEffect( () => {
 return  (
     <div>
         <div >
-            {isLoading ? <span>Loading...</span> : (
+            {isLoading ? 
+                (<span className='loading'><div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></span>)
+                : (
                 <div>
                     <CampaignList allCampaigns={dataCampaigns} />
                 </div>
