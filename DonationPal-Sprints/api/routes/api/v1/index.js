@@ -1,6 +1,7 @@
 
 var express = require('express');
 var router = express.Router();
+var ObjectId = require('mongodb').ObjectId;
 
 const mongoose = require('mongoose');
 require('models/Campaigns');
@@ -68,6 +69,16 @@ router.get('/donation', async (req, res) => {
 router.get('/donation/:_id', async function (req, res, next) {
   const paramInputID = req.params._id;
   const requestedCampaign = await Donations.findById(paramInputID);
+  console.log(paramInputID);
+  console.log(requestedCampaign);
+  res.json(requestedCampaign);
+});
+
+// Getting donations by Campaign id in database
+router.get('/donation/campaign/:campaign_id', async function (req, res, next) {
+  const paramInputID = {'campaign_id': new ObjectId(req.params.campaign_id)}
+  // req.params.campaign_id;
+  const requestedCampaign = await Donations.find(paramInputID);
   console.log(paramInputID);
   console.log(requestedCampaign);
   res.json(requestedCampaign);

@@ -6,6 +6,7 @@ import { useLocation, useParams } from "react-router-dom";
 import axios from 'axios';
 
 import useCampDetailsFetcher from '../../hooks/campaign/detailsHook'
+import useDonationDetailsFetcher from '../../hooks/donation/specificDonation';
 
 import '../campaigns/campaigns.css';
 import Details from '../../components/campaigns/details'
@@ -16,6 +17,8 @@ function AllTasks( {apiURL} ){
     const { _id } = useParams();
 
     const [isLoading, error, campdata] = useCampDetailsFetcher(apiURL + '/campaign/' + _id);
+    // const [isLoading, error, campdata] = useCampDetailsFetcher(apiURL + '/campaign/' + _id);
+
     return(
         <div className="Tasks-wrapper">
             { isLoading ?  
