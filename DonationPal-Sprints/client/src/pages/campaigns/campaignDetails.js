@@ -5,11 +5,12 @@ import { useLocation, useParams } from "react-router-dom";
 // import useTaskFetcher from '../../hook/useTaskFetcher.js'; this is the hook
 import axios from 'axios';
 
-import useCampDetailsFetcher from '../../hooks/campaign/detailsHook'
+import useCampDetailsFetcher from '../../hooks/campaign/detailsHook';
 import useDonationDetailsFetcher from '../../hooks/donation/specificDonation';
 
 import '../campaigns/campaigns.css';
-import Details from '../../components/campaigns/details'
+import Details from '../../components/campaigns/details';
+import Donation from '../../components/donations/donations';
 // import DetailsList from '../../components/campaigns/detailsList';
 
 
@@ -17,7 +18,7 @@ function AllTasks( {apiURL} ){
     const { _id } = useParams();
 
     const [isLoading, error, campdata] = useCampDetailsFetcher(apiURL + '/campaign/' + _id);
-    // const [isLoading, error, campdata] = useCampDetailsFetcher(apiURL + '/campaign/' + _id);
+    const [Loading, errors, dataDonation] = useDonationDetailsFetcher(apiURL + '/donation/campaign/' + _id);
 
     return(
         <div className="Tasks-wrapper">
@@ -27,11 +28,20 @@ function AllTasks( {apiURL} ){
                 (
                     <div className='DetailsListCard'>
                         {campdata.map( (campdata) => <Details 
-                        name={campdata.name} 
-                        description={campdata.description} 
-                        goal={campdata.goal}
-                        start_date={campdata.start_date}
-                        end_date={campdata.end_date}/>)}
+                            name={campdata.name} 
+                            description={campdata.description} 
+                            goal={campdata.goal}
+                            start_date={campdata.start_date}
+                            end_date={campdata.end_date}
+                        />
+                        )}
+
+                        {dataDonation.map( (donatedata) => <Donation 
+                            message={donatedata.message} 
+                            donation_date={donatedata.donation_date}
+                            amount={donatedata.amount}
+                        />
+                        )}
                     </div>
                 )
             }

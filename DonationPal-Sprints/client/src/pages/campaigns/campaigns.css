@@ -1,5 +1,6 @@
-.DetailsListCard{
+.DetailsListCard {
     display: flex;
     justify-content: center;
     margin-top: 5%;
+    flex-direction: column!important;
 }

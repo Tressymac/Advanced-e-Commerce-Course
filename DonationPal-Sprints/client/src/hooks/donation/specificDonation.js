@@ -3,9 +3,9 @@ import axios from 'axios';
 
 function useDonationDetailsFetcher(dataSource){
     // Set up initial state of state variables
-    const [isLoading, setIsLoading] = useState(false);
+    const [Loading, setIsLoading] = useState(false);
     const [dataDonation, setDonation] = useState([]);
-    const [error, setError] = useState('');
+    const [errors, setError] = useState('');
 
     useEffect( () => {
     
@@ -28,7 +28,7 @@ function useDonationDetailsFetcher(dataSource){
         loadDonations();
     }, []);
 
-    return [isLoading, error, dataDonation];
+    return [Loading, errors, dataDonation];
 }
 
 export default useDonationDetailsFetcher;
