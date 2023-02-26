@@ -57,5 +57,21 @@ const userSchema = new Schema ({
 }
 );
 
+// Create a "pre-hook" that will run prior to a record being saved 
+// Has the incoming passowrd 10x and then store the hashed password back to the user object 
+userSchema.pre('save', async function(next) {
+    const user = this;
+    const hash = await bcrypt.hash(this.password, 10);
+    this.password = hash;
+    next();
+});
+
+// Create a helper function that uses bcrypt to check the plain text verison of the password againist the hashed version 
+userSchema.method.isValidPassword = async function(encryptedPassword) {
+    const user = this;
+    const compare = await bcrypt.compare(encryptedPassword, user.password);
+    return compare;
+};
+
 const userModel = mongoose.model('user', userSchema);
 model.exports = userModel;
