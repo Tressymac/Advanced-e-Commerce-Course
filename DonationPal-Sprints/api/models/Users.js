@@ -1,5 +1,6 @@
 const { ObjectId, Int32 } = require('mongodb');
 const mongoose = require('mongoose');
+const bcrypt = require('bcrypt');
 const Schema = mongoose.Schema;
 
 //Create Schema 
@@ -22,6 +23,11 @@ const userSchema = new Schema ({
     },
     email: {
         type: String,
+        required: true,
+        unique: true
+    },
+    password: {
+        type: String, 
         required: true
     },
     dob: {
@@ -51,4 +57,5 @@ const userSchema = new Schema ({
 }
 );
 
-mongoose.model('user', userSchema);
+const userModel = mongoose.model('user', userSchema);
+model.exports = userModel;

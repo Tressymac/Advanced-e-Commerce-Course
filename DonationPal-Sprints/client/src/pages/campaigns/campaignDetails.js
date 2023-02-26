@@ -35,7 +35,7 @@ function AllTasks( {apiURL} ){
 
                         {dataDonation.map( (donatedata) => <Donation 
                             message={donatedata.message} 
-                            donation_date={donatedata.donation_date}
+                            date={donatedata.date}
                             amount={donatedata.amount}
                         />
                         )}
