@@ -25,7 +25,8 @@ let aunthenticateLogin = async(email, password, cb) => {
         if (!user){
             return cb (null, false);
         }
-        
+        // console.log(user);
+        console.log(password);
         const isValidPwd = await user.isValidPassword(password);
 
         if (isValidPwd){

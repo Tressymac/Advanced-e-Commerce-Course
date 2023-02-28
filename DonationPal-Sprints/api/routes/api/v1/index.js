@@ -2,11 +2,13 @@
 var express = require('express');
 var router = express.Router();
 var ObjectId = require('mongodb').ObjectId;
-
+const passport = require('passport');
 const mongoose = require('mongoose');
+const jwt = require('jsonwebtoken');
 require('models/Campaigns');
 require('models/Donations');
 require('models/Users');
+
 
 const Campaigns = mongoose.model('campaign');
 const Donations = mongoose.model('donation');
@@ -84,6 +86,47 @@ router.get('/donation/campaign/:campaign_id', async function (req, res, next) {
   res.json(requestedCampaign);
 });
 
+
+router.post('/users/register', passport.authenticate('register', {session: false}), async (req, res) => {
+  res.status(200).json({
+    message: 'Registration successful',
+    user: req.user
+  })
+});
+
+router.post('/users/login', 
+  // Passport middleware 
+  passport.authenticate('login', {session: false, failWithError: true}),
+  // If we find user, we will land here
+  function (req, res) {
+    console.log(req.user);
+    // Create a token to be returned in the response 
+    // Create a payload (the middle part of the token)
+    const payload = { id: req.user._id, email: req.user.email } // Do not put a password in here
+    // Create a token 
+    const token = jwt.sign( { payload}, process.env.TOP_SECRET_KEY, { expiresIn: '1m'});
+    // Create n object that includes user infomation for the client and the token 
+    loginObject = {};
+    loginObject._id = req.user._id;
+    loginObject.email = req.user.email;
+    loginObject.accessToken = token;
+    console.log(loginObject);
+    return res.status(200).json(loginObject);
+  },
+  // If we do not find a user, we will land here
+  function(err, req, res) {
+    errorResponse = {
+      "error": {
+        "name": "loginError"
+      },
+      "message": "usernot found",
+      "statusCode": 401, 
+      "data": [],
+      "success": false
+    }
+    return res.status(401).json(errorResponse);
+  }
+)
 
 
 module.exports = router;

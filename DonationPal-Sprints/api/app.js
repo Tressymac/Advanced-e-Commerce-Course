@@ -21,6 +21,10 @@ mongoose.connect(process.env.MONGO_CONNECTION_STRING, {
 
 const app = express();
 
+// Passport initialization 
+// Makes passport available throughout the app 
+require('config/passport');
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

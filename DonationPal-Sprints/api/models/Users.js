@@ -67,11 +67,11 @@ userSchema.pre('save', async function(next) {
 });
 
 // Create a helper function that uses bcrypt to check the plain text verison of the password againist the hashed version 
-userSchema.method.isValidPassword = async function(encryptedPassword) {
+userSchema.methods.isValidPassword = async function(encryptedPassword) {
     const user = this;
     const compare = await bcrypt.compare(encryptedPassword, user.password);
     return compare;
 };
 
 const userModel = mongoose.model('user', userSchema);
-model.exports = userModel;
+module.exports = userModel;
