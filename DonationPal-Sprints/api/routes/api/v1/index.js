@@ -5,6 +5,7 @@ var ObjectId = require('mongodb').ObjectId;
 const passport = require('passport');
 const mongoose = require('mongoose');
 const jwt = require('jsonwebtoken');
+const { session } = require('passport');
 require('models/Campaigns');
 require('models/Donations');
 require('models/Users');
@@ -104,7 +105,7 @@ router.post('/users/login',
     // Create a payload (the middle part of the token)
     const payload = { id: req.user._id, email: req.user.email } // Do not put a password in here
     // Create a token 
-    const token = jwt.sign( { payload}, process.env.TOP_SECRET_KEY, { expiresIn: '1m'});
+    const token = jwt.sign( { payload}, process.env.TOP_SECRET_KEY, { expiresIn: '1d'});
     // Create n object that includes user infomation for the client and the token 
     loginObject = {};
     loginObject._id = req.user._id;
@@ -126,7 +127,11 @@ router.post('/users/login',
     }
     return res.status(401).json(errorResponse);
   }
-)
+);
+
+router.get('/users/me', passport.authenticate('jwt', {session: false}), (req, res) => {
+  res.status(200).json(req.user);
+});
 
 
 module.exports = router;

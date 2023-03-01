@@ -9,7 +9,10 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
+// Routers
 const apiRouter = require('./routes/api/v1');
+const ordersRouter = require('./routes/api/v1/orders');
+const passport = require('passport');
 
 mongoose.set("strictQuery", false);
 mongoose.connect(process.env.MONGO_CONNECTION_STRING, {
@@ -33,6 +36,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors());
 
 app.use('/api/v1', apiRouter);
+app.use('/api/v1/orders', passport.authenticate('jwt', {session: false}), ordersRouter);
+
 
 console.log(process.env.NODE_ENV)
 
