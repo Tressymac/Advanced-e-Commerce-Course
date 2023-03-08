@@ -10,6 +10,14 @@
     background-color: rgb(10, 10, 10);
   }
   
+  h5{
+    position: relative;
+    right: 720px;
+  }
+
+  a{
+    
+  }
   /* @media (prefers-reduced-motion: no-preference) {
     .App-logo {
       animation: App-logo-spin infinite 20s linear;

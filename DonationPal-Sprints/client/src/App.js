@@ -12,6 +12,8 @@ import Homepage from './components/home/home';
 import Campaigns from './pages/campaigns/campaigns';
 import CampaignDetails from './pages/campaigns/campaignDetails';
 
+import Login from './components/login/login'
+
 
 function App() {
 
@@ -35,6 +37,7 @@ function App() {
             <Route path="/" element={<Homepage image={homeImage}/>}/>;
             <Route path="/Campaigns" element={<Campaigns apiURL={apiURL} />}/>;
             <Route path="/Campaigns/:_id" element={<CampaignDetails apiURL={apiURL} />}/>;
+            <Route path="/login" element={<Login />}/>;
           </Routes>
         </BrowserRouter>
       </div>
