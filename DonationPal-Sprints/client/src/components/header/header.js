@@ -1,4 +1,4 @@
-import { Link as RouterLink } from 'react-router-dom'
+import { Link as RouterLink, Outlet } from 'react-router-dom'
 import '../header/header.css'
 
 function Header( {Logo} ){
@@ -15,7 +15,11 @@ function Header( {Logo} ){
                 <RouterLink to='/' className='App-link Header-link'>Home</RouterLink>
                 <RouterLink to='/Campaigns' className='Header-link'>Campaigns</RouterLink>
                 <RouterLink to='/Contributors' className='Header-link'>Contributors</RouterLink>
+                <RouterLink to='/profile' className='Header-link'>Profile</RouterLink>
                 </div>
+
+                <Outlet />
+
             </nav>
         </header>
     )

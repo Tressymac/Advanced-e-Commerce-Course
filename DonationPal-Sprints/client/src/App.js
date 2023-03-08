@@ -14,6 +14,8 @@ import CampaignDetails from './pages/campaigns/campaignDetails';
 
 import Login from './components/login/login'
 
+import ProfilePage from "./pages/profile/profile";
+
 
 function App() {
 
@@ -38,6 +40,7 @@ function App() {
             <Route path="/Campaigns" element={<Campaigns apiURL={apiURL} />}/>;
             <Route path="/Campaigns/:_id" element={<CampaignDetails apiURL={apiURL} />}/>;
             <Route path="/login" element={<Login />}/>;
+            <Route path='profile' element={ <ProfilePage /> } />
           </Routes>
         </BrowserRouter>
       </div>
