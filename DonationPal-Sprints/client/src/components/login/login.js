@@ -55,9 +55,9 @@ function MyForm() {
         if (loginResponse == null) {
             alert(`That username and password is not valid!`);
         } else {
-            // alert(`Your access token is: ${loginResponse.accessToken}`);
+            console.log(`This is the user ID: ${loginResponse._id}`)
             setToken(loginResponse.accessToken);
-            navigate('/profile');
+            navigate(`/profile/${loginResponse._id}`);
         }
     }
 
@@ -84,5 +84,7 @@ function MyForm() {
         </form>
     )
 }
+
+// export const data=[{userData}];
 
 export default MyForm;

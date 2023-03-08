@@ -40,7 +40,8 @@ function App() {
             <Route path="/Campaigns" element={<Campaigns apiURL={apiURL} />}/>;
             <Route path="/Campaigns/:_id" element={<CampaignDetails apiURL={apiURL} />}/>;
             <Route path="/login" element={<Login />}/>;
-            <Route path='profile' element={ <ProfilePage /> } />
+            {/* <Route path='/profile' element={ <ProfilePage /> } /> */}
+            <Route path='/profile/:_id' element={ <ProfilePage/> } />
           </Routes>
         </BrowserRouter>
       </div>

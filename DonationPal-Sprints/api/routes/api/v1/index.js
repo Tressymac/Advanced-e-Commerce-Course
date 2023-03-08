@@ -87,6 +87,15 @@ router.get('/donation/campaign/:campaign_id', async function (req, res, next) {
   res.json(requestedCampaign);
 });
 
+// Getting donations by user id in database
+router.get('/donation/user/:user_id', async function (req, res, next) {
+  const paramInputID = {'user_id': new ObjectId(req.params.user_id)}
+  const requestedCampaign = await Donations.find(paramInputID);
+  console.log(paramInputID);
+  console.log(requestedCampaign);
+  res.json(requestedCampaign);
+});
+
 
 router.post('/users/register', passport.authenticate('register', {session: false}), async (req, res) => {
   res.status(200).json({
