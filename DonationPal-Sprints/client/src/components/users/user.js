@@ -1,9 +1,9 @@
 import '../users/user.css';
-import { useNavigate, Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function UserInfo ({name}){
     const navigate = useNavigate();
-    
+
     const logOut = (event) => {
         localStorage.removeItem("accessToken");    
         navigate(`/login`);    

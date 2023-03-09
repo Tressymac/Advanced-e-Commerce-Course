@@ -1,4 +1,3 @@
-import react from 'react';
 import User from './userDonations';
 import SecondUserDonations from './secondUserDonations';
 

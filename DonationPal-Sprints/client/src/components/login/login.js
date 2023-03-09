@@ -1,10 +1,8 @@
-import { Link as RouterLink } from 'react-router-dom'
 import '../login/login.css'
 
 import { useState, useContext } from 'react';
 import { useNavigate, Navigate } from 'react-router-dom';
 
-import ReactDOM from 'react-dom/client';
 import { APIURLContext } from '../../contexts/APIURLContext';
 import axios from 'axios';
 import useToken from '../../hooks/login/useToken';
