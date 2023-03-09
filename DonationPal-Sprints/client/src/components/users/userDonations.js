@@ -1,14 +1,13 @@
 import '../users/user.css';
 
 function UserDonations ({date, amount}){
+    const newDate = date.slice(0, 10)
     return(
 
-    <div>
-        
-        <tr>
-            <td>{date}</td>
-        </tr>
-            
+    <div className='nestedTable'>
+        <td>
+            {newDate}
+        </td>
     </div>
 
 

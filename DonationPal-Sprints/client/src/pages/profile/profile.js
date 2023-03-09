@@ -6,6 +6,7 @@ import useToken from '../../hooks/login/useToken';
 
 import useUserDetailsFetcher from '../../hooks/login/userDits';
 import useUserDonationListFetcher from '../../hooks/login/userDonations';
+import useDonationDetailsFetcher from '../../hooks/donation/specificDonation';
 
 import UserInfo from '../../components/users/user'
 import UserList from '../../components/users/userList';
@@ -19,7 +20,7 @@ export default function ProfilePage() {
     const apiURL = useContext(APIURLContext);
 
     const { _id } = useParams();
-    const [isLoading, error, campdata] = useUserDetailsFetcher(apiURL + '/user/' + _id);
+    const [isLoading, error, userdata] = useUserDetailsFetcher(apiURL + '/user/' + _id);
     const [Loading, errors, dataDonation] = useUserDonationListFetcher(apiURL + '/donation/user/' + _id);
 
     // If there isn't a token set, don't let the user see this page
@@ -35,8 +36,8 @@ export default function ProfilePage() {
             : 
                 (
                     <div className='DetailsListCard'>
-                        {campdata.map( (campdata) => <UserInfo 
-                            name={campdata.name.first} 
+                        {userdata.map( (udata) => <UserInfo 
+                            name={udata.name.first} 
                         />
                         )}
 
