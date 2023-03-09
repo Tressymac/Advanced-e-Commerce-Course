@@ -89,4 +89,13 @@
     padding-bottom: 1rem;
 }
 
+.App-link{
+    text-transform: uppercase;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    letter-spacing: 4px;
+    color: rgb(255, 255, 255);
+    position: relative;
+    right: 920px;
+  }
+
   

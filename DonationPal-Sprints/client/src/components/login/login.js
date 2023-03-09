@@ -58,6 +58,7 @@ function MyForm() {
             console.log(`This is the user ID: ${loginResponse._id}`)
             setToken(loginResponse.accessToken);
             navigate(`/profile/${loginResponse._id}`);
+            document.querySelector(".App-link Header-link").style.display="none"
         }
     }
 
@@ -86,5 +87,9 @@ function MyForm() {
 }
 
 // export const data=[{userData}];
+// function hideButton() {
+//     document.querySelector(".App-link Header-link").style.display="none"
+// };
 
 export default MyForm;
+

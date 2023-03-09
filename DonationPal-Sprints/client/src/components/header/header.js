@@ -7,7 +7,6 @@ function Header( {Logo} ){
             <nav>
                 <div className='Introduction'>
 
-                    <h5><RouterLink to='/login' className='App-link Header-link'>Login</RouterLink></h5>
                     <img src={Logo} className="App-logo" alt='Donation Pal logo' />
                     <h1>Donation Pal</h1>
                 </div>

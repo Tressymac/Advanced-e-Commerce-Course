@@ -4,6 +4,7 @@ import '../home/home.css'
 function Homepage ({image}){
     return(
         <div className='Container'>
+                <h5><RouterLink to='/login' className='App-link Header-link'>Login</RouterLink></h5>
                 <div className='IntroductionHome'>
                     <img src={image} className="App-image1" alt='Homepage Image' />
                 {/* </div>

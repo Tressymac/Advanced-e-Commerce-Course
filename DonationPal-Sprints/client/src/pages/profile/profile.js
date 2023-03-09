@@ -1,15 +1,13 @@
 import { Navigate } from 'react-router-dom';
-import { useLocation, useParams } from "react-router-dom";
-import { useState, useContext } from 'react';
+import { useParams } from "react-router-dom";
+import { useContext } from 'react';
 
 import useToken from '../../hooks/login/useToken';
-import userInfo from '../../components/login/login';
 
 import useUserDetailsFetcher from '../../hooks/login/userDits';
 import useUserDonationListFetcher from '../../hooks/login/userDonations';
 
 import UserInfo from '../../components/users/user'
-import UserDonations from '../../components/users/userDonations';
 import UserList from '../../components/users/userList';
 
 import '../profile/profile.css'
@@ -17,7 +15,7 @@ import '../profile/profile.css'
 import { APIURLContext } from '../../contexts/APIURLContext';
 
 export default function ProfilePage() {
-    const { token, setToken } = useToken();
+    const { token } = useToken();
     const apiURL = useContext(APIURLContext);
 
     const { _id } = useParams();
