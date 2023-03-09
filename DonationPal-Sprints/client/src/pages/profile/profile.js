@@ -10,6 +10,7 @@ import useUserDonationListFetcher from '../../hooks/login/userDonations';
 
 import UserInfo from '../../components/users/user'
 import UserDonations from '../../components/users/userDonations';
+import UserList from '../../components/users/userList';
 
 import '../profile/profile.css'
 
@@ -23,34 +24,29 @@ export default function ProfilePage() {
     const [isLoading, error, campdata] = useUserDetailsFetcher(apiURL + '/user/' + _id);
     const [Loading, errors, dataDonation] = useUserDonationListFetcher(apiURL + '/donation/user/' + _id);
 
-    {dataDonation.map( (donatedata) => console.log(donatedata))}
-
     // If there isn't a token set, don't let the user see this page
     if (!token) {
         // Redirect the user to the root route
         return <Navigate replace to='/login' />
     }
+    else{
+        return(
+            <div className="Tasks-wrapper">
+            { isLoading ?  
+                (<span className='loading'><div className="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></span>)
+            : 
+                (
+                    <div className='DetailsListCard'>
+                        {campdata.map( (campdata) => <UserInfo 
+                            name={campdata.name.first} 
+                        />
+                        )}
 
-    return(
-        <div className="Tasks-wrapper">
-        { isLoading ?  
-            (<span className='loading'><div className="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></span>)
-        : 
-            (
-                <div className='DetailsListCard'>
-                    {campdata.map( (campdata) => <UserInfo 
-                        name={campdata.name.first} 
-                    />
-                    )}
-
-                    {dataDonation.map( (donatedata) => <UserDonations 
-                            date={donatedata.date}
-                            amount={donatedata.amount}
-                    />
-                    )}
-                </div>
-            )
-        }
-        </div>
-    )
+                        <UserList allUsers={dataDonation} />
+                    </div>
+                )
+            }
+            </div>
+        )
+    }
 }
