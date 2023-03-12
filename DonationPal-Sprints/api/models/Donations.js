@@ -8,24 +8,23 @@ const donationSchema = new Schema ({
         type: ObjectId,
         required: true
     },
-    name: {
+    campaign_id: {
+        type: ObjectId,
+        required: true
+    },
+    user_id: {
+        type: ObjectId,
+        required: true
+    },
+    message: {
         type: String,
         required: true
     },
-    description: {
-        type: String,
-        required: true,
-        trim: true
-    },
-    goal: {
+    amount: {
         type: Number,
         required: true
     },
-    start_date: {
-        type: Date,
-        required: true
-    },
-    end_date: {
+    donation_date: {
         type: Date,
         required: true
     }
