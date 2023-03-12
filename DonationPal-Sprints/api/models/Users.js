@@ -43,11 +43,11 @@ const userSchema = new Schema ({
         required: true
     },
     id: {
-        type: String,
+        type: Object,
         required: true
     },
     picture: {
-        type: String,
+        type: Object,
         required: true
     },
     nat: {
