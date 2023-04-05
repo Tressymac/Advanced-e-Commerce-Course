@@ -23,9 +23,7 @@ export default function ProfilePage() {
     const [isLoading, error, userdata] = useUserDetailsFetcher(apiURL + '/user/' + _id);
     const [Loading, errors, dataDonation] = useUserDonationListFetcher(apiURL + '/donation/user/' + _id);
 
-    // If there isn't a token set, don't let the user see this page
     if (!token) {
-        // Redirect the user to the root route
         return <Navigate replace to='/login' />
     }
     else{

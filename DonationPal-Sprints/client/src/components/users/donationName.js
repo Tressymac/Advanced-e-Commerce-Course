@@ -1,7 +1,6 @@
 import { useContext } from 'react';
 
 import '../users/user.css';
-import useDonationDetailsFetcher from '../../hooks/donation/specificDonation';
 import { APIURLContext } from '../../contexts/APIURLContext';
 import useCampDetailsFetcher from '../../hooks/campaign/detailsHook';
 

@@ -4,7 +4,7 @@ function UserMessageDonations ({message}){
     return(
     <div className='nestedTable'>
         <td>
-            {message}
+            "{message}"
         </td>
     </div>
 
