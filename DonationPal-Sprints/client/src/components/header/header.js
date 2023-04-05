@@ -11,10 +11,10 @@ function Header( {Logo} ){
                     <h1>Donation Pal</h1>
                 </div>
                 <div>
-                <RouterLink to='/' className='App-link Header-link'>Home</RouterLink>
                 <RouterLink to='/Campaigns' className='Header-link'>Campaigns</RouterLink>
                 <RouterLink to='/Contributors' className='Header-link'>Contributors</RouterLink>
                 <RouterLink to='/profile' className='Header-link'>Profile</RouterLink>
+                <RouterLink to='/' className='Header-link'>Home</RouterLink>
                 </div>
 
                 <Outlet />
