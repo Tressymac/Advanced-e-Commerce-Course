@@ -1,3 +1,3 @@
 runtime: nodejs18
 service: client
-entrypoint: serve build
+entrypoint: serve -s build

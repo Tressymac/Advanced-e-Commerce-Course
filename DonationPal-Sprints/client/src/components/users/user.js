@@ -6,7 +6,7 @@ function UserInfo ({name}){
 
     const logOut = (event) => {
         localStorage.removeItem("accessToken");    
-        navigate(`/login`);    
+        navigate(`/${process.env.PUBLIC_URL}/login`);    
     };
     return(
         <div>

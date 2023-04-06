@@ -4,7 +4,7 @@ function SecondUserDonations ({date, amount, campaign_id}){
     return(
     <div className='nestedTable'>
         <td>
-            <a href={`../Campaigns/${campaign_id}`}>${amount}</a>
+            <a href={`/${process.env.PUBLIC_URL}/Campaigns/${campaign_id}`}>${amount}</a>
         </td>
     </div>
 
