@@ -32,7 +32,7 @@ function App() {
   return (
     <div className='container'>
       <div className="App">
-        <BrowserRouter basename="/deployed-DonationPal">
+        <BrowserRouter>
           <Header Logo={logoImage} />
           <Routes>
             {/* Whoops the homepage is in the component */}

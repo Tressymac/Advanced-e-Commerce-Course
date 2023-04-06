@@ -55,7 +55,7 @@ function MyForm() {
         } else {
             console.log(`This is the user ID: ${loginResponse._id}`)
             setToken(loginResponse.accessToken);
-            navigate(`/${process.env.PUBLIC_URL}/profile/${loginResponse._id}`);
+            navigate(`/profile/${loginResponse._id}`);
             document.querySelector(".App-link Header-link").style.display="none"
         }
     }

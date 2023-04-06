@@ -9,7 +9,7 @@ function Campaigns ({name, description, goal, start_date, end_date, _id}){
                     <hr></hr>
                     <h3 className="card-subtitle mb-2 text-muted">Goal: {goal}</h3>
                     <p className="card-text">{description}</p>
-                    <a href={`/deployed-DonationPal/Campaigns/${_id}`} className="btn btn-primary">
+                    <a href={`/Campaigns/${_id}`} className="btn btn-primary">
                         <button className='campButton'> Learn More</button>
                     </a>          
                 </div>
