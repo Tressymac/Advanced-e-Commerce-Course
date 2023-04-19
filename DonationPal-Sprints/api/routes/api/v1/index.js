@@ -176,7 +176,7 @@ router.post('/donations/create_checkout', async (req, res) => {
       },
     ],
     mode: 'payment',
-    success_url: `${getURL('api')}/donations/donation_success?success=true&session_id={CHECKOUT_SESSION_ID}&campaign_id=${req.body.campaign_id}`,
+    success_url: `${getURL('client')}/donations/donation_success?success=true&session_id={CHECKOUT_SESSION_ID}&campaign_id=${req.body.campaign_id}`,
     cancel_url: `${getURL('client')}`,
     metadata: {
       campaign_id: req.body.campaign_id
@@ -199,7 +199,7 @@ router.get('/donation_success', async (req, res) => {
   console.log(session.metadata.campaign_id);
   console.log(req.query.campaign_id);
 
-  // TODO: Add a donation record to the database
+  // I need to add a donation record to the database
   const donation_amount = session.amount_total/100;
 
   // Construct a URL to the front end to deliver the user

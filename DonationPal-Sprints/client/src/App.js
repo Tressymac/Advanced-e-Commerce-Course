@@ -8,13 +8,11 @@ import './assets/styles/style.css'
 import './App.css';
 import Header from './components/header/header.js';
 import Homepage from './components/home/home';
-
 import Campaigns from './pages/campaigns/campaigns';
 import CampaignDetails from './pages/campaigns/campaignDetails';
-
 import Login from './components/login/login'
-
 import ProfilePage from "./pages/profile/profile";
+import DonationSuccess from './pages/donations/donationSuccess';
 
 
 function App() {
@@ -40,6 +38,7 @@ function App() {
             <Route path="/Campaigns" element={<Campaigns apiURL={apiURL} />}/>;
             <Route path="/Campaigns/:_id" element={<CampaignDetails apiURL={apiURL} />}/>;
             <Route path="/login" element={<Login />}/>;
+            <Route path='/donations/donation_success' element={<DonationSuccess />} />
             {/* <Route path='/profile' element={ <ProfilePage /> } /> */}
             <Route path='/profile/:_id' element={ <ProfilePage/> } />
           </Routes>
