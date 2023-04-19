@@ -160,7 +160,7 @@ router.get('/users/me', passport.authenticate('jwt', {session: false}), (req, re
   res.status(200).json(req.user);
 });
 
-router.post('/donations/create_checkout', async (res, req) => {
+router.post('/donations/create_checkout', async (req, res) => {
   console.log(req.body);
   const session = await stripe.checkout.sessions.create({
     line_items: [
