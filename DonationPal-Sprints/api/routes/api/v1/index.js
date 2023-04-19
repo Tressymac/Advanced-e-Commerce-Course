@@ -9,6 +9,7 @@ const { session } = require('passport');
 require('models/Campaigns');
 require('models/Donations');
 require('models/Users');
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 
 const Campaigns = mongoose.model('campaign');
@@ -19,6 +20,23 @@ const Users = mongoose.model('user');
 router.get('/', (req, res) => {
     res.send('Root API route');
 });
+
+// Helper function to get prod/dev client/api URL
+const getURL = (app) => {
+  if (process.env.NODE_ENV === 'production'){
+      if (app === 'client') {
+          return process.env.PROD_CLIENT_URL;
+      } else {
+          return process.env.PROD_API_URL;
+      }
+  } else {
+      if (app === 'client') {
+          return process.env.DEV_CLIENT_URL;
+      } else {
+          return process.env.DEV_API_URL;
+      }
+  }
+};
 
 // Getting all campaigns in database
 router.get('/campaign', async (req, res) => {
@@ -140,6 +158,57 @@ router.post('/users/login',
 
 router.get('/users/me', passport.authenticate('jwt', {session: false}), (req, res) => {
   res.status(200).json(req.user);
+});
+
+router.post('/donation/create_checkout', async (res, req) => {
+  console.log(req.body);
+  const session = await stripe.checkout.sessions.create({
+    line_items: [
+      {
+        price_data: {
+          currency: 'usd',
+          product_data: {
+            name: req.body.campaign_name
+          },
+          unit_amount: req.body.donation_amount
+        },
+        quantity: 1
+      },
+    ],
+    mode: 'payment',
+    success_url: `${getURL('api')}/donations/donation_success?success=true&session_id={CHECKOUT_SESSION_ID}&campaign_id=${req.body.campaign_id}`,
+    cancel_url: `${getURL('client')}`,
+    metadata: {
+        campaign_id: req.body.campaign_id
+    }
+  });
+
+  console.log(session);
+
+  res.redirect(303, session.url);
+
+});
+
+router.get('/donation_success', async (req, res) => {
+  // View the entire querystring
+  console.log(req.query);
+  // Retrieve the checkout session from the Stripe API
+  const session = await stripe.checkout.sessions.retrieve(req.query.session_id);
+  // View the entire session object returned by Stripe
+  console.log(session);
+  // Retrieve the campaign_id (metadata or querystring)
+  console.log(session.metadata.campaign_id);
+  console.log(req.query.campaign_id);
+
+  // TODO: Add a donation record to the database
+  // (REMEMBER) the amount_total is in CENTS and not DOLLARS
+  const donation_amount = session.amount_total/100;
+
+  // Construct a URL to the front end to deliver the user
+  const clientURL = `${getURL('client')}/donation_success?campaign_id=${session.metadata.campaign_id}&donation_amount=${donation_amount}`;
+
+  // Redirect the user
+  res.redirect(303, clientURL);
 });
 
 

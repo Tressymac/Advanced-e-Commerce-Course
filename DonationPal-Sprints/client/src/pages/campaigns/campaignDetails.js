@@ -30,6 +30,7 @@ function AllTasks( {apiURL} ){
                             goal={campdata.goal}
                             start_date={campdata.start_date}
                             end_date={campdata.end_date}
+                            campaign_id={campdata._id}
                         />
                         )}
 
