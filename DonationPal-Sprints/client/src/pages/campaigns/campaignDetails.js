@@ -25,7 +25,7 @@ function AllTasks( {apiURL} ){
                 (
                     <div className='DetailsListCard'>
                         {campdata.map( (campdata) => <Details 
-                            name={campdata.name} 
+                            campaign_name={campdata.name} 
                             description={campdata.description} 
                             goal={campdata.goal}
                             start_date={campdata.start_date}

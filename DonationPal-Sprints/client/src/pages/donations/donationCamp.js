@@ -27,12 +27,8 @@ function AllTasks( {apiURL} ){
                 (
                     <div className='DetailsListCard'>
                         {dataDonation.map( (dataDonate) => <Details 
-                        // name={campdata.name} 
-                        // description={campdata.description} 
-                        // goal={campdata.goal}
-                        // start_date={campdata.start_date}
-                        // end_date={campdata.end_date}
                         message={dataDonate.message}
+                        campaign_name={dataDonate.campaign_name}
                         />
                         )}
                     </div>
