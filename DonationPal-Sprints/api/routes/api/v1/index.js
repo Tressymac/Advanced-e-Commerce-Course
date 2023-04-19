@@ -176,7 +176,7 @@ router.post('/donations/create_checkout', async (req, res) => {
       },
     ],
     mode: 'payment',
-    success_url: `${getURL('client')}/donations/donation_success?success=true&session_id={CHECKOUT_SESSION_ID}&campaign_id=${req.body.campaign_id}`,
+    success_url: `${getURL('client')}/donations/donation_success?success=true&session_id={CHECKOUT_SESSION_ID}&campaign_id=${req.body.campaign_id}&donation_amount=${req.body.donation_amount}`,
     cancel_url: `${getURL('client')}`,
     metadata: {
       campaign_id: req.body.campaign_id

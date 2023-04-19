@@ -36,7 +36,7 @@ function DonationSuccess() {
     // Return the component with data embedded
     return (
         <div className="success" style={mystyle}>
-            Donation success! You donated ${donationAmount} to the campaign <strong style={mystyle2}>"{campaign.name}"</strong>!
+            Donation success! You donated ${donationAmount.slice(0,2)} to the campaign <strong style={mystyle2}>"{campaign.name}"</strong>!
         </div>
     )
 
